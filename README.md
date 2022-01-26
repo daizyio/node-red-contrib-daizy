@@ -2,7 +2,6 @@
 - [Introduction](#introduction)
 - [Install](#install)
 - [Usage](#usage)
-- [Copyright and license](#copyright-and-license)
 
 ## Introduction
 The daizy events node is a way for you to integrate your iot events into your Node Red flow, once a token is added you can receive events from any of your Daizy projects.
