@@ -1,0 +1,24 @@
+{
+  "name": "daizy-iot-2.0",
+  "version": "0.0.2",
+  "description": "Connect to Daizy",
+  "dependencies": {
+    "aws-sdk": "*",
+    "aws-iot-device-sdk": "^2.2.4",
+    "ws": "^6.0.0"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "node-red",
+    "daizy"
+  ],
+  "node-red": {
+    "nodes": {
+      "daizy-datasets": "daizy-datasets.js"
+    }
+  },
+  "author": {
+    "name": "Mark Piper",
+    "email": "mark@daizy.io"
+  }
+}
