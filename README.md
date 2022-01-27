@@ -4,12 +4,12 @@
 - [Usage](#usage)
 
 ## Introduction
-The daizy events node is a way for you to integrate your iot events into your Node Red flow, once a token is added you can receive events from any of your Daizy projects.
+The [Daizy](daizy.io) platform makes enterprise-scale deployment of your IoT projects super-consumable. This NodeRED library provides an inbound node to receive events from your Daizy devices.
 
 ## Install
-Run this command in the root directory of your Node Red install:
+You can install this node to your palette via the normal NodeRED package installer.  Alternatively, you can install the package from the command line:
 
 `npm install node-red-contrib-daizy`
 
 ## Usage
-The daizy events node works as an entry node and passes a payload object for each event received, the only configuration required is a token which can be generated via the Daizy Portal.
+For instructions on using this node, please refer to our [Knowledge Base](https://daizy.atlassian.net/servicedesk/customer/portal/2/article/1965817857?src=-453852629)

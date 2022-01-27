@@ -5,20 +5,20 @@ let TOPIC_PREFIX = `/out/integrations/`
 module.exports = function(RED) {
 	"use strict";
 
-  RED.nodes.registerType("daizy events", DaizyDatasets, {
+  RED.nodes.registerType("daizy events", DaizyEvents, {
 		credentials : {
 		  token : { type: 'text' }
 		}
 	});
 
-	function DaizyDatasets(n) {
+	function DaizyEvents(n) {
     RED.nodes.createNode(this, n);
 		if (!this.connection) {
 			this.connect(n.token, n.endpoint);
 		}
 	}
 
-	DaizyDatasets.prototype.connect = function(token, endpoint) {
+	DaizyEvents.prototype.connect = function(token, endpoint) {
     this.status(this.SUBSCRIBING);
 		if (!this.connection) {
 			try {
@@ -72,26 +72,26 @@ module.exports = function(RED) {
 		}
 	};
 
-  DaizyDatasets.prototype.close = function() {
+  DaizyEvents.prototype.close = function() {
 		if(this.connection) {
 			this.log("Disconnecting")
 			this.connection.end()
 		}
 	}
 
-	DaizyDatasets.prototype.SUBSCRIBING = {
+	DaizyEvents.prototype.SUBSCRIBING = {
 		fill : "yellow",
 		shape : "ring",
 		text : "subscribing..."
 	}
 
-	DaizyDatasets.prototype.SUBSCRIBED = {
+	DaizyEvents.prototype.SUBSCRIBED = {
 		fill : "green",
 		shape : "ring",
 		text : "subscribed"
 	}
 
-	DaizyDatasets.prototype.ERROR = {
+	DaizyEvents.prototype.ERROR = {
 		fill : "red",
 		shape : "ring",
 		text : "Error"
