@@ -1,6 +1,6 @@
 {
-  "name": "daizy-iot-2.0",
-  "version": "0.0.2",
+  "name": "@daizyio/node-red-contrib-daizy",
+  "version": "0.0.4",
   "description": "Connect to Daizy",
   "dependencies": {
     "aws-sdk": "*",
@@ -17,8 +17,17 @@
       "daizy-datasets": "daizy-datasets.js"
     }
   },
-  "author": {
-    "name": "Mark Piper",
-    "email": "mark@daizy.io"
-  }
+  "author": "Mark Piper <mark@daizy.io>",
+  "main": "daizy-datasets.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daizyio/node-red-contrib-daizy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/daizyio/node-red-contrib-daizy/issues"
+  },
+  "homepage": "https://github.com/daizyio/node-red-contrib-daizy#readme"
 }
