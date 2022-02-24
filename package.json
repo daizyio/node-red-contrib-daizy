@@ -1,10 +1,10 @@
 {
   "name": "@daizyio/node-red-contrib-daizy",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Connect to Daizy",
   "dependencies": {
     "mqtt": "*",
-    "ws": "^6.0.0"
+    "ws": "^6.2.2"
   },
   "license": "Apache-2.0",
   "keywords": [
