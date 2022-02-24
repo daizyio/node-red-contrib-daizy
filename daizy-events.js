@@ -19,6 +19,9 @@ module.exports = function(RED) {
 	}
 
 	DaizyEvents.prototype.connect = function(token, endpoint) {
+	if(token === "" ){
+		this.status(this.UNAUTHORIZED);
+	}else{
     this.status(this.SUBSCRIBING);
 		if (!this.connection) {
 			try {
@@ -30,7 +33,7 @@ module.exports = function(RED) {
 					clientId,
 					clean: false,
           keepalive: 180,
-          reconnectPeriod: 10
+          reconnectPeriod: 60000
 				});
 
         var self = this;
@@ -51,7 +54,7 @@ module.exports = function(RED) {
 					self.status(self.ERROR);
 				})
 
-				this.connection.on('close', function () {
+				this.connection.on('close', function (err) {
 					self.log('Connection was closed')
           self.status(self.ERROR)
 				})
@@ -70,6 +73,7 @@ module.exports = function(RED) {
 				this.status(this.ERROR)
 			}
 		}
+	}
 	};
 
   DaizyEvents.prototype.close = function() {
@@ -95,5 +99,11 @@ module.exports = function(RED) {
 		fill : "red",
 		shape : "ring",
 		text : "Error"
+	}
+
+	DaizyEvents.prototype.UNAUTHORIZED = {
+		fill : "red",
+		shape : "ring",
+		text : "Invalid Token"
 	}
 };
