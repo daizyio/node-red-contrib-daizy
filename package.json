@@ -1,6 +1,6 @@
 {
   "name": "@daizyio/node-red-contrib-daizy",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Connect to Daizy",
   "dependencies": {
     "mqtt": "*",

@@ -33,7 +33,7 @@ module.exports = function(RED) {
 					clientId,
 					clean: false,
           keepalive: 180,
-          reconnectPeriod: 60000
+          reconnectPeriod: 3000
 				});
 
         var self = this;
