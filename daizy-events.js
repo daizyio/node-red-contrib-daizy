@@ -1,4 +1,10 @@
 let Mqtt = require('mqtt');
+const NodeCache = require( "node-cache" );
+
+const messageCache = new NodeCache({ 
+	stdTTL: 3600, // 1 hour
+	checkperiod: 300 // 5 minutes
+});
 
 let TOPIC_PREFIX = `/out/integrations/`
 
@@ -61,7 +67,19 @@ module.exports = function(RED) {
 
 				this.connection.on('message', function(topic, payload) {
           payload = JSON.parse(payload);
-          self.log(`Received message on ${topic}`);
+          self.log(`Received message on ${topic}, with messageId: ${payload.messageId}`);
+					if (payload.eventId) {
+						self.log(`Checking cache for eventId: ${payload.eventId}`);
+						if (messageCache.has(payload.eventId)) {
+							self.log(`eventId: ${payload.eventId} exists in debounce cache - dropping message...`);
+							return;
+						} else {
+							self.log(`eventId: ${payload.eventId} is not in debounce cache, caching and processing message...`);
+							messageCache.set(payload.eventId, payload.messageId);
+						}
+					} else {
+						self.log(`Message does not contain eventId so cannot check debounce cache...`);
+					}
           self.send({
             topic : topic,
             payload : payload
