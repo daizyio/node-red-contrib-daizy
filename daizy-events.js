@@ -3,7 +3,7 @@ const NodeCache = require( "node-cache" );
 
 const messageCache = new NodeCache({ 
 	stdTTL: 3600, // 1 hour
-	checkperiod: 300 // 5 minutes
+	checkperiod: 1800 // 30 minutes
 });
 
 let TOPIC_PREFIX = `/out/integrations/`
